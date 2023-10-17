@@ -1,0 +1,40 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/microservice1/{literalmenteQualquerCoisaxx}", //Url Chega no ocelot ex: localhost:5000/microservice1/xxx/yyy/zzz
+      "DownstreamPathTemplate": "/{literalmenteQualquerCoisaxx}", //Direcionado do Gateway ex: localhost:5000/xxx/yyy/zzz
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        },
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      //"RateLimitOptions": {
+      //  "EnableRateLimiting": true,
+      //  "Period": "10s",
+      //  "PeriodTimespan": 10,
+      //  "Limit": 10
+      //}
+    },
+
+    {
+      "UpstreamPathTemplate": "/microservice3/{everything}", //Url Chega no ocelot ex: localhost:5000/microservice3/xxx/yyy/zzz
+      "DownstreamPathTemplate": "/{everything}", //Direcionado do Gateway ex: localhost:5000/xxx/yyy/zzz
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5003
+        }
+      ]
+    }
+  ]
+}
